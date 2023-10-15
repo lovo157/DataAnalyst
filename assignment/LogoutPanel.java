@@ -1,4 +1,4 @@
-package assignment;
+// package assignment;
 
 import javax.swing.*;
 import java.awt.*;
@@ -19,6 +19,5 @@ class LogoutPanel extends SwitchablePanel {
         // JLabel label = new JLabel("Profile Page");
         // add(label, BorderLayout.CENTER);
     }
-
 
 }

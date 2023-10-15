@@ -1,4 +1,4 @@
-package assignment;
+// package assignment;
 
 import javax.swing.*;
 import java.awt.*;
@@ -15,6 +15,7 @@ public class MainAppFrame extends JFrame {
     private JLabel success;
     private JButton popupLoginButton;
     private JButton logout;
+    private JLabel labelWithText; 
     // private JPanel homePanel;
    
 
@@ -26,6 +27,7 @@ public class MainAppFrame extends JFrame {
         JPanel homePanel = createHomePanel();
         cards.add("logout", homePanel);  // HomePanel is assumed to follow the same structure as the other panels
         //   cards.add("HOME", new HomePanel(this));
+        
         cards.add("PROFILE", new ProfilePanel(this));
         cards.add("LOGGEDIN", new HomePanelLoggedIN(this));
         cards.add("ANALYTICS", new AnalyticsPanel(this));
@@ -38,26 +40,62 @@ public class MainAppFrame extends JFrame {
         setSize(500, 500);
         setVisible(true);
     }
-private JPanel createHomePanel() {
+    private JPanel createHomePanel() {
         JPanel panel = new JPanel(new BorderLayout());
         
+        // Top Panel with Heading and Buttons
         JPanel topPanel = new JPanel(new BorderLayout());
         JPanel buttonPanel = new JPanel();
-
-        popupLoginButton = new JButton("Login");
+        JPanel placeholder = new JPanel(new BorderLayout());
+        
+        
+    
+        // Heading
+        JLabel label1 = new JLabel("Data Analyze Hub");
+        label1.setFont(new Font("Verdana", Font.PLAIN, 25));
+        topPanel.add(label1, BorderLayout.WEST);
+    
+        // Buttons
+        JButton popupLoginButton1 = new JButton("Create Account");
+        buttonPanel.add(popupLoginButton1);
+        JButton popupLoginButton = new JButton("Login");
         popupLoginButton.addActionListener(e -> showLoginDialog());
         buttonPanel.add(popupLoginButton);
-
-        logout = new JButton("Logout");
+        JButton logout = new JButton("Logout");
         logout.setVisible(false);
         buttonPanel.add(logout);
-
         topPanel.add(buttonPanel, BorderLayout.EAST);
         topPanel.setBorder(BorderFactory.createEmptyBorder(15, 0, 0, 15));
         panel.add(topPanel, BorderLayout.NORTH);
-        
+    
+        // Center Panel with Text
+        JPanel centerPanel = new JPanel(new GridBagLayout());
+        GridBagConstraints gbc = new GridBagConstraints();
+        JLabel labelWithText = new JLabel("<html>Our Data Analyze Hub is designed to transform how you perceive social media. Dive deep into post insights and discover patterns, sentiments, and trends. Navigate the digital landscape effectively. Plus, our premium feature takes your analysis to the next level, offering unparalleled depth and clarity. Unlock the potential of data now.</html>");
+        labelWithText.setBorder(BorderFactory.createLineBorder(Color.GRAY));
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        gbc.weightx = 2;
+        gbc.weighty = 1;
+        gbc.fill = GridBagConstraints.BOTH;
+        centerPanel.add(labelWithText, gbc);
+        panel.add(centerPanel, BorderLayout.CENTER);
+
+        // adding the images 
+        ImageIcon imageIconNorth = new ImageIcon("Pictures/Data1.jpg");
+        JLabel imageLabelNorth = new JLabel(imageIconNorth);
+        placeholder.add(imageLabelNorth, BorderLayout.NORTH);
+        // Image at the bottom (South)
+        ImageIcon imageIconSouth = new ImageIcon("Pictures/Data2.jpg");
+        JLabel imageLabelSouth = new JLabel(imageIconSouth);
+        placeholder.add(imageLabelSouth, BorderLayout.SOUTH);
+        gbc.gridx = 1;
+        gbc.weightx = 1;
+        centerPanel.add(placeholder, gbc);
+   
         return panel;
     }
+    
 
     private void showLoginDialog() {
         JDialog loginDialog = new JDialog(this, "Login Prompt", true);

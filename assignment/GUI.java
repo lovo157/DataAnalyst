@@ -1,4 +1,4 @@
-package assignment;
+// package assignment;
 
 import javax.swing.*;
 import java.awt.*;
@@ -27,6 +27,7 @@ public class GUI implements ActionListener {
 
         // Panel for holding the buttons
         topPanel = new JPanel(new BorderLayout());
+        
         
         JPanel buttonPanel = new JPanel(); // New panel to hold both buttons
 

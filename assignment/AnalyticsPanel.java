@@ -1,4 +1,4 @@
-package assignment;
+// package ASSIGNMENT;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -17,4 +17,5 @@ class AnalyticsPanel extends SwitchablePanel {
         JLabel label = new JLabel("Analytics Page");
         add(label, BorderLayout.CENTER);
     }
+
 }
