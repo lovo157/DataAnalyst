@@ -5,6 +5,8 @@ import javax.swing.*;
 abstract class SwitchablePanel extends JPanel {
     protected JComboBox<String> optionsComboBox;
     protected MainAppFrame frame;
+    protected JPanel topPanel;  // Top-level panel for BorderLayout.NORTH of the main panel
+    protected JPanel titlePanel;  // Center panel for titles and other elements
 
     public SwitchablePanel(MainAppFrame frame) {
         this.frame = frame;
@@ -21,10 +23,16 @@ abstract class SwitchablePanel extends JPanel {
             }
         });
 
-        // This JPanel will keep the JComboBox on the top left corner
         JPanel comboPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
         comboPanel.add(optionsComboBox);
-        add(comboPanel, BorderLayout.NORTH);
+
+        titlePanel = new JPanel(new BorderLayout());
+
+        topPanel = new JPanel(new BorderLayout());
+        topPanel.add(comboPanel, BorderLayout.WEST);  // Place comboPanel on the far left
+        topPanel.add(titlePanel, BorderLayout.CENTER);  // Leave room in the center for specific titles
+
+        add(topPanel, BorderLayout.NORTH);
     }
 
     protected abstract void addSpecificFeatures();
