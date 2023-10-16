@@ -1,10 +1,6 @@
-// package assignment;
-
-import java.awt.BorderLayout;
+import java.awt.*;
 import java.awt.event.ItemEvent;
-
-import javax.swing.JComboBox;
-import javax.swing.JPanel;
+import javax.swing.*;
 
 abstract class SwitchablePanel extends JPanel {
     protected JComboBox<String> optionsComboBox;
@@ -24,12 +20,12 @@ abstract class SwitchablePanel extends JPanel {
                 frame.switchCard(selectedOption);
             }
         });
-        add(optionsComboBox, BorderLayout.SOUTH);
+
+        // This JPanel will keep the JComboBox on the top left corner
+        JPanel comboPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
+        comboPanel.add(optionsComboBox);
+        add(comboPanel, BorderLayout.NORTH);
     }
 
-    
-
-    // Abstract method that subclasses MUST implement.
-    // This method can be used to add specific features to the panel.
     protected abstract void addSpecificFeatures();
 }

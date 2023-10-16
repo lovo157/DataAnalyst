@@ -8,17 +8,22 @@ import java.awt.event.ActionListener;
 class HomePanelLoggedIN extends SwitchablePanel {
    private JPanel westPanel;
    private JComboBox<String> optionsComboBox;
+      private JPanel northPanel;
     
     public HomePanelLoggedIN(MainAppFrame frame) {
         super(frame);
-        addSpecificFeatures();
+        addSpecificFeatures(); 
     }
 
-    @Override
+
     protected void addSpecificFeatures() {
-        // Specific features for ProfilePanel
-        // JLabel label = new JLabel("Profile Page");
-        // add(label, BorderLayout.CENTER);
+        
+        // JLabel label1 = new JLabel("LOGGEDIN");
+        // label1.setFont(new Font("Verdana", Font.PLAIN, 25));
+        // label1.add(label1, BorderLayout.WEST);
+        // // northPanel.add(optionsComboBox, BorderLayout.NORTH);
+
+       
     }
 
 

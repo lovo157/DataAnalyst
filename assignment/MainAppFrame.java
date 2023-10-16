@@ -27,7 +27,6 @@ public class MainAppFrame extends JFrame {
         JPanel homePanel = createHomePanel();
         cards.add("logout", homePanel);  // HomePanel is assumed to follow the same structure as the other panels
         //   cards.add("HOME", new HomePanel(this));
-        
         cards.add("PROFILE", new ProfilePanel(this));
         cards.add("LOGGEDIN", new HomePanelLoggedIN(this));
         cards.add("ANALYTICS", new AnalyticsPanel(this));
@@ -136,8 +135,10 @@ public class MainAppFrame extends JFrame {
 
         if ("1".equals(user) && "1".equals(password)) {
             success.setText("Login successful!");
-            popupLoginButton.setVisible(false);
-            logout.setVisible(true);
+            Window dialog = SwingUtilities.getWindowAncestor(success);
+            if (dialog != null) {
+                dialog.dispose();
+            }
             switchCard("LOGGEDIN");
         } else {
             success.setText("Login failed!");
