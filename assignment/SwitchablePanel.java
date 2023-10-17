@@ -14,7 +14,7 @@ abstract class SwitchablePanel extends JPanel {
         setLayout(new BorderLayout());
 
         // Common features (like the JComboBox for switching panels)
-        String[] options = {"LOGGEDIN", "PROFILE", "ANALYTICS", "UPGRADE", "logout"};
+        String[] options = {"LOGGEDIN", "PROFILE", "ANALYTICS", "UPGRADE", "logout", "POST"};
         optionsComboBox = new JComboBox<>(options);
         optionsComboBox.addItemListener(e -> {
             if (e.getStateChange() == ItemEvent.SELECTED) {

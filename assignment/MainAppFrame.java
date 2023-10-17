@@ -3,6 +3,7 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.HashMap;
 
 public class MainAppFrame extends JFrame {
     private CardLayout cardLayout = new CardLayout();
@@ -26,11 +27,11 @@ public class MainAppFrame extends JFrame {
         // Create instances of your panels and add them to the CardLayout
         JPanel homePanel = createHomePanel();
         cards.add("logout", homePanel);  // HomePanel is assumed to follow the same structure as the other panels
-        //   cards.add("HOME", new HomePanel(this));
         cards.add("PROFILE", new ProfilePanel(this));
         cards.add("LOGGEDIN", new HomePanelLoggedIN(this));
         cards.add("ANALYTICS", new AnalyticsPanel(this));
         cards.add("UPGRADE", new UpgradePanel(this));
+        cards.add("POST", new PostPanel(this));
         // cards.add("logout", new LogoutPanel(this));
 
         setLayout(new BorderLayout());
@@ -144,6 +145,7 @@ public class MainAppFrame extends JFrame {
             success.setText("Login failed!");
         }
     }
+    
 
     
 
@@ -154,5 +156,6 @@ public class MainAppFrame extends JFrame {
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> new MainAppFrame());
+       
     }
 }
