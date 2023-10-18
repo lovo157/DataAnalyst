@@ -27,7 +27,7 @@ class AnalyticsPanel extends SwitchablePanel {
         // Title setup
         JLabel label = new JLabel("AnalyticsPanel", SwingConstants.CENTER);
         label.setFont(new Font("Arial", Font.BOLD, 32));
-        titlePanel.add(la bel);
+        titlePanel.add(label);
 
         // Sort options
         String[] options = {"Content A-Z", "Author", "#likes", "#shares", "#Date old-recent"};
@@ -64,6 +64,21 @@ class AnalyticsPanel extends SwitchablePanel {
         } else {
             postsList.setListData(posts.toArray(new Post[0]));
         }
+
+        JPanel buttonPanel = new JPanel();
+
+        JButton btnAdd = new JButton("add Post");
+        JButton btnEdit = new JButton("Edit Post");
+        // JButton btnAdd = new JButton("add Post");
+
+        
+
+
+        buttonPanel.setLayout(new GridLayout(1, 3, 5, 5));
+        buttonPanel.add(btnAdd);
+        buttonPanel.add(btnEdit);
+        postsList.add(buttonPanel, BorderLayout.SOUTH);
+        // buttonPanel.add(btnBClear);
     }
     private List<Post> loadPostsFromCSV(String filename) {
         List<Post> loadedPosts = new ArrayList<>();
